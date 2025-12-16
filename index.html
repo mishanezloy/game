@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Double Jump Platformer</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-gamepad"></i> Double Jump Adventure</h1>
+            <div class="score-board">
+                <div class="score-item">
+                    <i class="fas fa-star"></i>
+                    <span>Очки: <span id="score">0</span></span>
+                </div>
+                <div class="score-item">
+                    <i class="fas fa-heart"></i>
+                    <span>Жизни: <span id="lives">3</span></span>
+                </div>
+                <div class="score-item">
+                    <i class="fas fa-redo"></i>
+                    <span>Двойной прыжок: <span id="double-jump">✓</span></span>
+                </div>
+            </div>
+        </header>
+
+        <div class="game-container">
+            <canvas id="gameCanvas" width="800" height="500"></canvas>
+            
+            <div class="controls">
+                <div class="control-group">
+                    <h3><i class="fas fa-keyboard"></i> Управление</h3>
+                    <div class="keys">
+                        <div class="key"><i class="fas fa-arrow-left"></i> Влево</div>
+                        <div class="key"><i class="fas fa-arrow-right"></i> Вправо</div>
+                        <div class="key"><i class="fas fa-arrow-up"></i> Прыжок</div>
+                        <div class="key"><i class="fas fa-space-bar"></i> Двойной прыжок</div>
+                    </div>
+                </div>
+                
+                <div class="game-buttons">
+                    <button id="startBtn" class="btn btn-start">
+                        <i class="fas fa-play"></i> Начать игру
+                    </button>
+                    <button id="pauseBtn" class="btn btn-pause">
+                        <i class="fas fa-pause"></i> Пауза
+                    </button>
+                    <button id="restartBtn" class="btn btn-restart">
+                        <i class="fas fa-redo"></i> Заново
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h3><i class="fas fa-info-circle"></i> Как играть:</h3>
+            <ul>
+                <li>Двигайся по платформам и собирай монеты</li>
+                <li>Используй двойной прыжок для достижения высоких платформ</li>
+                <li>Избегай падения в пропасть</li>
+                <li>Собери все монеты для победы!</li>
+            </ul>
+			<!-- В блок .instructions добавляем после <ul>: -->
+<div class="instructions-content">
+    <div class="instruction-category">
+        <h4><i class="fas fa-th-large"></i> Типы платформ:</h4>
+        <div class="platform-info">
+            <div class="platform-color" style="background-color: #4CAF50;"></div>
+            <div class="platform-description">
+                <strong>Зеленые:</strong> Статичные платформы - безопасные и надежные
+            </div>
+        </div>
+        <div class="platform-info">
+            <div class="platform-color" style="background-color: #9C27B0;"></div>
+            <div class="platform-description">
+                <strong>Фиолетовые:</strong> Движущиеся платформы - перемещаются горизонтально
+            </div>
+        </div>
+        <div class="platform-info">
+            <div class="platform-color" style="background-color: #00BCD4;"></div>
+            <div class="platform-description">
+                <strong>Голубые:</strong> Прыгучие платформы - дают высокий отскок, но разрушаются после использования
+            </div>
+        </div>
+    </div>
+    
+    <div class="instruction-category">
+        <h4><i class="fas fa-gamepad"></i> Управление:</h4>
+        <div class="platform-info">
+            <i class="fas fa-arrows-alt-h"></i>
+            <div class="platform-description">
+                <strong>Стрелки влево/вправо:</strong> Движение по горизонтали
+            </div>
+        </div>
+        <div class="platform-info">
+            <i class="fas fa-arrow-up"></i>
+            <div class="platform-description">
+                <strong>Стрелка вверх или Пробел:</strong> Одиночный прыжок
+            </div>
+        </div>
+        <div class="platform-info">
+            <i class="fas fa-redo"></i>
+            <div class="platform-description">
+                <strong>Двойное нажатие:</strong> Двойной прыжок в воздухе
+            </div>
+        </div>
+        <div class="platform-info">
+            <i class="fas fa-key"></i>
+            <div class="platform-description">
+                <strong>Клавиша R:</strong> Перезапуск игры (когда игра окончена)
+            </div>
+        </div>
+    </div>
+</div>
+        </div>
+
+        <div class="game-status" id="gameStatus"></div>
+    </div>
+
+    <script src="js/InputHandler.js"></script>
+    <script src="js/Collision.js"></script>
+    <script src="js/Platform.js"></script>
+    <script src="js/Player.js"></script>
+    <script src="js/Renderer.js"></script>
+    <script src="js/Game.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
